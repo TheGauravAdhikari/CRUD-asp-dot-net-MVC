@@ -12,5 +12,8 @@ namespace CRUD.Models
         public required string phone { get; set; } 
 
         public required string email { get; set; } 
+
+
+
     }
 }
