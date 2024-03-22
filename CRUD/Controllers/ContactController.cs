@@ -40,6 +40,9 @@ namespace dotnetCRUD.Controllers
         }
 
 
+<<<<<<< HEAD
+
+=======
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -105,6 +108,7 @@ namespace dotnetCRUD.Controllers
             }
             return View(carLeadEntity);
         }
+>>>>>>> 38ab3a68a816f29af3eeb222a0648b225998936d
 
         public async Task<IActionResult> Delete(int? id)
         {
@@ -137,10 +141,13 @@ namespace dotnetCRUD.Controllers
             TempData["success"] = "Data Deleted Successfully";
             return RedirectToAction(nameof(Index));
         }
+<<<<<<< HEAD
+=======
 
         private bool ConactEntityExists(int id)
         {
             return _dbContext.Contacts.Any(e => e.Id == id);
         }
+>>>>>>> 38ab3a68a816f29af3eeb222a0648b225998936d
     }
 }

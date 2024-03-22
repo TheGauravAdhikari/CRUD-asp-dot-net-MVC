@@ -8,11 +8,21 @@
 
 <br />
 <h2>New Client</h2>
+<<<<<<< HEAD
+@* @if (Model.errorMessage != null && Model.errorMessage.Length > 0)
+{
+    <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+        <strong>@Model.errorMessage</strong>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+    </div>
+} *@
+=======
 
 
+>>>>>>> 38ab3a68a816f29af3eeb222a0648b225998936d
 
 
-<form method="POST">
+<form asp-action="Create">
     <div class="row mb-3">
         <label class="col-sm-3 col-form-label">Name</label>
         <div class="col-sm-6">
@@ -41,7 +51,17 @@
         </div>
     </div>
 
+<<<<<<< HEAD
+    @* @if (Model.successMessage != null && Model.successMessage.Length > 0)
+    {
+        <div class='alert alert-success alert-dismissible fade show' role='alert'>
+            <strong>@Model.successMessage</strong>
+            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+        </div>
+    } *@
+=======
    
+>>>>>>> 38ab3a68a816f29af3eeb222a0648b225998936d
 
 
     <div class="row mb-3">
