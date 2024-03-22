@@ -40,7 +40,75 @@ namespace dotnetCRUD.Controllers
         }
 
 
+<<<<<<< HEAD
 
+=======
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var carLeadEntity = await _dbContext.Contacts
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (carLeadEntity == null)
+            {
+                return NotFound();
+            }
+
+            return View(carLeadEntity);
+        }
+
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var carLeadEntity = await _dbContext.Contacts.FindAsync(id);
+            if (carLeadEntity == null)
+            {
+                return NotFound();
+            }
+            return View(carLeadEntity);
+        }
+
+        
+        [HttpPost]
+
+        public async Task<IActionResult> Edit(int id, [Bind("Id,name,phone,email,address")] Contact carLeadEntity)
+        {
+            if (id != carLeadEntity.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _dbContext.Update(carLeadEntity);
+                    await _dbContext.SaveChangesAsync();
+                    TempData["success"] = "Data Updated Successfully";
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ConactEntityExists(carLeadEntity.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(carLeadEntity);
+        }
+>>>>>>> 38ab3a68a816f29af3eeb222a0648b225998936d
 
         public async Task<IActionResult> Delete(int? id)
         {
@@ -73,5 +141,13 @@ namespace dotnetCRUD.Controllers
             TempData["success"] = "Data Deleted Successfully";
             return RedirectToAction(nameof(Index));
         }
+<<<<<<< HEAD
+=======
+
+        private bool ConactEntityExists(int id)
+        {
+            return _dbContext.Contacts.Any(e => e.Id == id);
+        }
+>>>>>>> 38ab3a68a816f29af3eeb222a0648b225998936d
     }
 }
